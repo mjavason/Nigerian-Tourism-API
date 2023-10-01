@@ -1,8 +1,8 @@
 import { mailService, userService } from '../services';
 import { SITE_LINK } from '../constants';
 import logger from '../helpers/logger';
-const fs = require('fs');
-const handlebars = require('handlebars');
+import fs from 'fs';
+import handlebars from 'handlebars';
 
 async function renderMailTemplate(templatePath: string, data: object) {
   try {

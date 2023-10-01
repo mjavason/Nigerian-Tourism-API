@@ -1,8 +1,6 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import crypto from 'crypto';
-// const ResetToken = require('../models/reset_token.model');
-// const UserModel = require('../models/user');
 import {
   AuthFailureResponse,
   NotFoundResponse,
