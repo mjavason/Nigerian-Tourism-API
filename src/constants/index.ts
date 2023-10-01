@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+
 dotenv.config({ path: './.env' });
 // export const CORS_ORIGIN = process.env.CORS_ORIGIN || 'http://localhost:3000';
 export const CORS_ORIGIN = process.env.CORS_ORIGIN || '*';
@@ -18,6 +19,25 @@ export const STATUS_CODES = {
   FAILURE: '10001',
   RETRY: '10002',
   INVALID_ACCESS_TOKEN: '10003',
+};
+
+export const LINKS = {
+  API_DOCUMENTATION:
+    process.env.API_DOCUMENTATION_URL ||
+    'https://documenter.getpostman.com/view/29278179/2s9YJbzN99',
+  EMAIL: 'mailto:app@mail.online',
+  GOOGLE_MEET: 'https://meet.google.com',
+  PHONE_CALL: 'tel:+2349999999999',
+  SMS: 'sms:+2349999999999',
+  WHATSAPP_CALL: 'https://wa.me/2349999999999',
+  WHATSAPP_CHAT: 'https://wa.me/2349999999999',
+  ZOOM: 'https://zoom.us/j/9999999999',
+};
+
+export const DATABASES = {
+  USER: 'user',
+  RESET_TOKEN: 'reset_token',
+  CONTRACT: 'contract',
 };
 
 export const MESSAGES = {
@@ -56,21 +76,38 @@ export const MESSAGES = {
   WELCOME_V1: 'Welcome to Version 1',
 };
 
-export const LINKS = {
-  API_DOCUMENTATION:
-    process.env.API_DOCUMENTATION_URL ||
-    'https://documenter.getpostman.com/view/29278179/2s9YJaYimq',
-  EMAIL: 'mailto:app@mail.online',
-  GOOGLE_MEET: 'https://meet.google.com',
-  PHONE_CALL: 'tel:+2349999999999',
-  SMS: 'sms:+2349999999999',
-  WHATSAPP_CALL: 'https://wa.me/2349999999999',
-  WHATSAPP_CHAT: 'https://wa.me/2349999999999',
-  ZOOM: 'https://zoom.us/j/9999999999',
-};
-
-export const DATABASES = {
-  USER: 'user',
-  RESET_TOKEN: 'reset_token',
-  CONTRACT: 'contract',
+export const LANGUAGE_KEYS = {
+  FETCHED: 'FETCHED',
+  UPDATED: 'UPDATED',
+  ERROR: 'ERROR',
+  CREATED: 'CREATED',
+  DELETED: 'DELETED',
+  SUCCESSFUL: 'SUCCESSFUL',
+  ASSIGNED: 'ASSIGNED',
+  NOT_FOUND: 'NOT_FOUND',
+  DEFAULT: 'DEFAULT',
+  ALREADY_EXISTS: 'ALREADY_EXISTS',
+  USER_ALREADY_EXISTS: 'USER_ALREADY_EXISTS',
+  AUTH_DEFAULT: 'AUTH_DEFAULT',
+  LOGOUT: 'LOGOUT',
+  LOGIN_FIRST: 'LOGIN_FIRST',
+  LOGGED_IN: 'LOGGED_IN',
+  LOGIN_FAILURE: 'LOGIN_FAILURE',
+  USER_UNAUTHORIZED: 'USER_UNAUTHORIZED',
+  USER_NOT_FOUND: 'USER_NOT_FOUND',
+  MAIL_SENT: 'MAIL_SENT',
+  INVALID_UNIQUE_ID: 'INVALID_UNIQUE_ID',
+  UNKNOWN_ERROR: 'UNKNOWN_ERROR',
+  AUTH_FAILURE: 'AUTH_FAILURE',
+  FORBIDDEN: 'FORBIDDEN',
+  AUTHENTICATION_FAILURE: 'AUTHENTICATION_FAILURE',
+  NOT_AUTHENTICATED: 'NOT_AUTHENTICATED',
+  BAD_PARAMETERS: 'BAD_PARAMETERS',
+  INTERNAL_ERROR: 'INTERNAL_ERROR',
+  SUCCESS_MSG_RESPONSE: 'SUCCESS_MSG_RESPONSE',
+  FAILURE_MSG_RESPONSE: 'FAILURE_MSG_RESPONSE',
+  ACCESS_TOKEN_ERROR_RESPONSE: 'ACCESS_TOKEN_ERROR_RESPONSE',
+  TOKEN_REFRESH_RESPONSE: 'TOKEN_REFRESH_RESPONSE',
+  ROUTE_NOT_FOUND: 'ROUTE_NOT_FOUND',
+  WELCOME_V1: 'WELCOME_V1',
 };
