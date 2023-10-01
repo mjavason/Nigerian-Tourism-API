@@ -9,7 +9,7 @@ const app = express();
 preMiddleware(app);
 
 //default response
-app.get('/', (req, res) => SuccessMsgResponse(res, MESSAGES.DEFAULT));
+app.get('/', (req, res) => SuccessMsgResponse(res));
 
 //documentation redirect
 app.get('/docs', (req, res) => {

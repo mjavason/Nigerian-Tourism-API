@@ -1,9 +1,6 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
-const crypto = require('crypto');
-const nodemailer = require('nodemailer');
-// const ResetToken = require('../models/reset_token.model');
-// const UserModel = require('../models/user');
+import crypto from 'crypto';
 import {
   AuthFailureResponse,
   NotFoundResponse,
@@ -28,9 +25,6 @@ async function hashPassword(password: string) {
 }
 class Controller {
   async register(req: Request, res: Response) {
-    // const cwd = process.cwd();
-    // console.log('Current working directory:', cwd);
-
     let existing_user = await userService.findOne({ email: req.body.email });
 
     //Hash password
@@ -81,10 +75,10 @@ class Controller {
     }
 
     // Passwords match, user is authenticated
-    const { _id, role } = user;
+    const { _id, role, language } = user;
 
-    let accessToken = await signJwt({ _id, role, email }, ACCESS_TOKEN_SECRET, '48h');
-    let refreshToken = await signJwt({ _id, role, email }, REFRESH_TOKEN_SECRET, '24h');
+    let accessToken = await signJwt({ _id, role, email, language }, ACCESS_TOKEN_SECRET, '48h');
+    let refreshToken = await signJwt({ _id, role, email, language }, REFRESH_TOKEN_SECRET, '24h');
 
     let data = {
       access_token: accessToken,
