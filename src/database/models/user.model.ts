@@ -22,10 +22,24 @@ const UserSchema = new Schema<IUser>(
       enum: ['user', 'admin'],
       required: true,
     },
-    account_balance: {
-      type: Number,
+    language: {
+      type: String,
+      enum: [
+        'chinese',
+        'english',
+        'french',
+        'hausa',
+        'hindi',
+        'igbo',
+        'italian',
+        'japanese',
+        'korean',
+        'russian',
+        'spanish',
+        'yoruba',
+      ],
       required: false,
-      default: 0,
+      default: 'english',
     },
     password: {
       type: String,
