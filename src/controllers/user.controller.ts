@@ -75,10 +75,10 @@ class Controller {
     }
 
     // Passwords match, user is authenticated
-    const { _id, role } = user;
+    const { _id, role, language } = user;
 
-    let accessToken = await signJwt({ _id, role, email }, ACCESS_TOKEN_SECRET, '48h');
-    let refreshToken = await signJwt({ _id, role, email }, REFRESH_TOKEN_SECRET, '24h');
+    let accessToken = await signJwt({ _id, role, email, language }, ACCESS_TOKEN_SECRET, '48h');
+    let refreshToken = await signJwt({ _id, role, email, language }, REFRESH_TOKEN_SECRET, '24h');
 
     let data = {
       access_token: accessToken,
