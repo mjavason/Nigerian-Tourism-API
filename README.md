@@ -72,10 +72,6 @@ API_DOCUMENTATION_URL=api.documentation.com
 
 - **Multilingual Support**: Enjoy multilingual support for various languages, making it accessible to a diverse audience.
 
-- **Real-time Weather Data**: Access real-time weather information for different regions in Nigeria.
-
-- **Currency Converter**: Convert currency values for various international currencies to Nigerian Naira (NGN).
-
 - **User Authentication**: Register and authenticate users for personalized experiences.
 
 - **Integration with External Services**: Utilize external services like Google Maps for enhanced mapping and navigation.
