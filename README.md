@@ -82,7 +82,7 @@ API_DOCUMENTATION_URL=api.documentation.com
 
 ## Documentation
 
-For detailed documentation on using the Nigerian Tourism API and its endpoints, refer to the [API Documentation](https://your-api-documentation-link.com).
+For detailed documentation on using the Nigerian Tourism API and its endpoints, refer to the [API Documentation](https://documenter.getpostman.com/view/29278179/2s9YJbzN99).
 
 ## Contributing
 

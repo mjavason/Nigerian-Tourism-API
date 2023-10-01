@@ -24,7 +24,7 @@ export const STATUS_CODES = {
 export const LINKS = {
   API_DOCUMENTATION:
     process.env.API_DOCUMENTATION_URL ||
-    'https://documenter.getpostman.com/view/29278179/2s9YJaYimq',
+    'https://documenter.getpostman.com/view/29278179/2s9YJbzN99',
   EMAIL: 'mailto:app@mail.online',
   GOOGLE_MEET: 'https://meet.google.com',
   PHONE_CALL: 'tel:+2349999999999',
