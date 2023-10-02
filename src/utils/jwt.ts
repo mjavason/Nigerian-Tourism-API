@@ -12,6 +12,10 @@ async function signJwt(payload: object, signature = JWT_SECRET, expiresIn?: stri
 async function verifyJwt(token: string, signature = JWT_SECRET) {
   try {
     const decoded = await jwt.verify(token, signature);
+    if (typeof decoded === 'string') {
+      console.log('decoded token is a string');
+      return false;
+    }
     return decoded;
   } catch (e) {
     // console.log(e);

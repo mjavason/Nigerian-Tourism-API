@@ -25,6 +25,12 @@ export function AuthFailureResponse(res: Response, message = LANGUAGE_KEYS.AUTH_
     .status(ResponseStatus.UNAUTHORIZED);
 }
 
+export function DefaultMsgResponse(res: Response, message = LANGUAGE_KEYS.DEFAULT): Response {
+  return res
+    .send({ success: false, status_code: StatusCode.FAILURE, message: translator.t(message) })
+    .status(ResponseStatus.UNAUTHORIZED);
+}
+
 export function NotFoundResponse(res: Response, message = LANGUAGE_KEYS.NOT_FOUND): Response {
   return res
     .send({ success: false, status_code: StatusCode.FAILURE, message: translator.t(message) })

@@ -5,6 +5,7 @@ import { CORS_ORIGIN } from '../constants';
 import limiter from './rate_limiter.middleware';
 
 function PreMiddleware(app: express.Application) {
+  
   // Middleware to enable CORS
   app.use(cors());
 

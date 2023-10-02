@@ -1,15 +1,15 @@
-import express, { Response } from 'express';
+import express from 'express';
 import { STATUS_CODES, LINKS, MESSAGES } from './constants';
 import rootRoutes from './routes';
 import preMiddleware from './middleware/pre.middleware';
-import { SuccessMsgResponse } from './helpers/response';
+import { DefaultMsgResponse } from './helpers/response';
 
 const app = express();
 
 preMiddleware(app);
 
 //default response
-app.get('/', (req, res) => SuccessMsgResponse(res));
+app.get('/', (req, res) => DefaultMsgResponse(res));
 
 //documentation redirect
 app.get('/docs', (req, res) => {

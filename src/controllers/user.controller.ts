@@ -2,18 +2,13 @@ import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import crypto from 'crypto';
 import {
-  AuthFailureResponse,
   NotFoundResponse,
   ForbiddenResponse,
-  BadRequestResponse,
   InternalErrorResponse,
   SuccessMsgResponse,
-  FailureMsgResponse,
   SuccessResponse,
-  AccessTokenErrorResponse,
-  TokenRefreshResponse,
 } from '../helpers/response';
-import { mailService, resetTokenService, userService } from '../services';
+import { resetTokenService, userService } from '../services';
 import logger from '../helpers/logger';
 import { signJwt } from '../utils/jwt';
 import { ACCESS_TOKEN_SECRET, JWT_SECRET, MESSAGES, REFRESH_TOKEN_SECRET } from '../constants';
