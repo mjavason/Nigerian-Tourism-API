@@ -11,7 +11,7 @@ import {
 import { resetTokenService, userService } from '../services';
 import logger from '../helpers/logger';
 import { signJwt } from '../utils/jwt';
-import { ACCESS_TOKEN_SECRET, JWT_SECRET, MESSAGES, REFRESH_TOKEN_SECRET } from '../constants';
+import { ACCESS_TOKEN_SECRET, JWT_SECRET, LANGUAGE_KEYS, REFRESH_TOKEN_SECRET } from '../constants';
 import { mailController } from '../controllers';
 
 async function hashPassword(password: string) {
@@ -81,7 +81,7 @@ class Controller {
     };
 
     // Return a success response or the token, depending on your authentication method
-    return SuccessResponse(res, data, MESSAGES.LOGGED_IN);
+    return SuccessResponse(res, data, LANGUAGE_KEYS.LOGGED_IN);
   }
 
   async resetPasswordMail(req: Request, res: Response) {
@@ -136,6 +136,15 @@ class Controller {
     if (!usedToken) return InternalErrorResponse(res, 'Unable to delete token');
 
     return SuccessMsgResponse(res, 'Password reset successful');
+  }
+
+  async update(req: Request, res: Response) {
+    const { id } = req.params;
+    const data = await userService.update({ _id: id }, req.body);
+
+    if (!data) return NotFoundResponse(res);
+
+    return SuccessResponse(res, data);
   }
 }
 

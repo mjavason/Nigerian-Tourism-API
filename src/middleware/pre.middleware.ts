@@ -3,9 +3,9 @@ import cors from 'cors';
 import helmet from 'helmet';
 import { CORS_ORIGIN } from '../constants';
 import limiter from './rate_limiter.middleware';
+import i18nInstance from '../helpers/translator';
 
 function PreMiddleware(app: express.Application) {
-  
   // Middleware to enable CORS
   app.use(cors());
 
@@ -26,7 +26,10 @@ function PreMiddleware(app: express.Application) {
   app.use(helmet());
 
   app.use(limiter);
-  
+
+  //change app language
+  i18nInstance.changeLanguage('spanish');
+
   return app;
 }
 

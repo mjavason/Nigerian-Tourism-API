@@ -1,11 +1,7 @@
 import { Request, Response } from 'express';
 import { resetTokenService } from '../services';
-import {
-  SuccessResponse,
-  InternalErrorResponse,
-  NotFoundResponse,
-} from '../helpers/response';
-import { MESSAGES } from '../constants';
+import { SuccessResponse, InternalErrorResponse, NotFoundResponse } from '../helpers/response';
+import { LANGUAGE_KEYS } from '../constants';
 
 class Controller {
   async create(req: Request, res: Response) {
@@ -46,7 +42,7 @@ class Controller {
 
     if (!data) return NotFoundResponse(res);
 
-    return SuccessResponse(res, data, MESSAGES.UPDATED);
+    return SuccessResponse(res, data, LANGUAGE_KEYS.UPDATED);
   }
 
   async delete(req: Request, res: Response) {
@@ -54,8 +50,8 @@ class Controller {
     const data = await resetTokenService.softDelete({ _id: id });
 
     if (!data) return NotFoundResponse(res);
-    
-    return SuccessResponse(res, data, MESSAGES.DELETED);
+
+    return SuccessResponse(res, data, LANGUAGE_KEYS.DELETED);
   }
 
   // Admins only
@@ -65,7 +61,7 @@ class Controller {
 
     if (!data) return NotFoundResponse(res);
 
-    return SuccessResponse(res, data, MESSAGES.DELETED);
+    return SuccessResponse(res, data, LANGUAGE_KEYS.DELETED);
   }
 }
 

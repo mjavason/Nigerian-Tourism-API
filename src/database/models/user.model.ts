@@ -46,6 +46,12 @@ const UserSchema = new Schema<IUser>(
       required: true,
       select: false,
     },
+    confirmed: {
+      type: Schema.Types.Boolean,
+      required: false,
+      select: false,
+      default: false,
+    },
     deleted: {
       type: Schema.Types.Boolean,
       required: false,

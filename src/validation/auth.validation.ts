@@ -8,6 +8,20 @@ class Validation {
       lastname: z.string().min(1).max(255),
       email: z.string().min(1).max(255).email(), // Check for a valid email address
       role: z.enum(['user', 'admin']),
+      language: z.enum([
+        'chinese',
+        'english',
+        'french',
+        'hausa',
+        'hindi',
+        'igbo',
+        'italian',
+        'japanese',
+        'korean',
+        'russian',
+        'spanish',
+        'yoruba',
+      ]), // Check for a valid email address
       password: z.string().min(5), // Adjust the password requirements as needed
     }),
   };

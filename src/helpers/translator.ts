@@ -15,7 +15,6 @@ import * as russianTranslations from '../constants/languages/russian.json';
 import * as spanishTranslations from '../constants/languages/spanish.json';
 import * as yorubaTranslations from '../constants/languages/yoruba.json';
 
-
 const i18nInstance = i18n.createInstance();
 
 // Initialize i18next instance
@@ -36,6 +35,11 @@ i18nInstance.init({
     russian: { translation: russianTranslations },
     spanish: { translation: spanishTranslations },
     yoruba: { translation: yorubaTranslations },
+    test: {
+      translation: {
+        "TEST": 'test',
+      },
+    },
   },
   debug: true, // Enable debugging (optional)
 });
