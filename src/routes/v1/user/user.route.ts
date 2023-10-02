@@ -1,9 +1,6 @@
 import { Router } from 'express';
 const router = Router();
-import {
-  processRequestBody,
-  processRequestParams,
-} from 'zod-express-middleware';
+import { processRequestBody, processRequestParams } from 'zod-express-middleware';
 import { userController } from '../../../controllers';
 import { userValidation } from '../../../validation';
 

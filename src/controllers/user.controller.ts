@@ -144,7 +144,7 @@ class Controller {
 
     if (!data) return NotFoundResponse(res);
 
-    return SuccessResponse(res, data);
+    return SuccessResponse(res, data, LANGUAGE_KEYS.UPDATED);
   }
 }
 

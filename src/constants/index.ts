@@ -37,7 +37,7 @@ export const LINKS = {
 export const DATABASES = {
   USER: 'user',
   RESET_TOKEN: 'reset_token',
-  CONTRACT: 'contract',
+  TOURISM: 'tourism',
 };
 
 export const MESSAGES = {

@@ -2,7 +2,7 @@ import express from 'express';
 import { STATUS_CODES, LINKS, LANGUAGE_KEYS } from './constants';
 import rootRoutes from './routes';
 import preMiddleware from './middleware/pre.middleware';
-import { DefaultMsgResponse } from './helpers/response';
+import { DefaultMsgResponse, RouteNotFoundResponse } from './helpers/response';
 import i18nInstance from './helpers/translator';
 
 const app = express();
@@ -21,12 +21,6 @@ app.get('/docs', (req, res) => {
 app.use('/api', rootRoutes);
 
 // Handle 404 errors
-app.use((req, res, next) => {
-  res.status(404).send({
-    status_code: STATUS_CODES.FAILURE,
-    message: LANGUAGE_KEYS.ROUTE_NOT_FOUND,
-    success: false,
-  });
-});
+app.use((req, res) => RouteNotFoundResponse(res));
 
 export default app;
