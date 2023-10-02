@@ -32,7 +32,7 @@ class Controller {
       return InternalErrorResponse(res);
     }
 
-    if (existing_user) return ForbiddenResponse(res, 'User already exists');
+    if (existing_user) return ForbiddenResponse(res, LANGUAGE_KEYS.USER_ALREADY_EXISTS);
     const data = await userService.create(req.body);
 
     if (!data) return InternalErrorResponse(res);
@@ -49,7 +49,7 @@ class Controller {
     if (!sendMail)
       return SuccessResponse(res, data, 'User registered successfully. Welcome mail failed');
 
-    return SuccessResponse(res, data);
+    return SuccessResponse(res, data, LANGUAGE_KEYS.SUCCESSFUL);
   }
 
   async login(req: Request, res: Response) {
