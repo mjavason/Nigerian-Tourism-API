@@ -21,26 +21,26 @@ enum ResponseStatus {
 
 export function AuthFailureResponse(res: Response, message = LANGUAGE_KEYS.AUTH_FAILURE): Response {
   return res
-    .send({ success: false, status_code: StatusCode.FAILURE, message: translator.t(message) })
-    .status(ResponseStatus.UNAUTHORIZED);
+    .status(ResponseStatus.UNAUTHORIZED)
+    .send({ success: false, status_code: StatusCode.FAILURE, message: translator.t(message) });
 }
 
 export function DefaultMsgResponse(res: Response, message = LANGUAGE_KEYS.DEFAULT): Response {
   return res
-    .send({ success: false, status_code: StatusCode.FAILURE, message: translator.t(message) })
-    .status(ResponseStatus.UNAUTHORIZED);
+    .status(ResponseStatus.UNAUTHORIZED)
+    .send({ success: false, status_code: StatusCode.FAILURE, message: translator.t(message) });
 }
 
 export function NotFoundResponse(res: Response, message = LANGUAGE_KEYS.NOT_FOUND): Response {
   return res
-    .send({ success: false, status_code: StatusCode.FAILURE, message: translator.t(message) })
-    .status(ResponseStatus.NOT_FOUND);
+    .status(ResponseStatus.NOT_FOUND)
+    .send({ success: false, status_code: StatusCode.FAILURE, message: translator.t(message) });
 }
 
 export function ForbiddenResponse(res: Response, message = LANGUAGE_KEYS.FORBIDDEN): Response {
   return res
-    .send({ success: false, status_code: StatusCode.FAILURE, message: translator.t(message) })
-    .status(ResponseStatus.FORBIDDEN);
+    .status(ResponseStatus.FORBIDDEN)
+    .send({ success: false, status_code: StatusCode.FAILURE, message: translator.t(message) });
 }
 
 export function BadRequestResponse(
@@ -48,8 +48,8 @@ export function BadRequestResponse(
   message = LANGUAGE_KEYS.BAD_PARAMETERS,
 ): Response {
   return res
-    .send({ success: false, status_code: StatusCode.FAILURE, message: translator.t(message) })
-    .status(ResponseStatus.BAD_REQUEST);
+    .status(ResponseStatus.BAD_REQUEST)
+    .send({ success: false, status_code: StatusCode.FAILURE, message: translator.t(message) });
 }
 
 export function ForbiddenButWeMoveResponse<T>(
@@ -58,8 +58,8 @@ export function ForbiddenButWeMoveResponse<T>(
   message = LANGUAGE_KEYS.BAD_PARAMETERS,
 ): Response {
   return res
-    .json({ success: true, status_code: StatusCode.WE_MOVE, message: translator.t(message), data })
-    .status(ResponseStatus.FORBIDDEN);
+    .status(ResponseStatus.FORBIDDEN)
+    .json({ success: true, status_code: StatusCode.WE_MOVE, message: translator.t(message), data });
 }
 
 export function InternalErrorResponse(
@@ -67,20 +67,29 @@ export function InternalErrorResponse(
   message = LANGUAGE_KEYS.INTERNAL_ERROR,
 ): Response {
   return res
-    .send({ success: false, status_code: StatusCode.FAILURE, message: translator.t(message) })
-    .status(ResponseStatus.INTERNAL_ERROR);
+    .status(ResponseStatus.INTERNAL_ERROR)
+    .send({ success: false, status_code: StatusCode.FAILURE, message: translator.t(message) });
 }
 
 export function SuccessMsgResponse(res: Response, message = LANGUAGE_KEYS.FETCHED): Response {
   return res
-    .send({ success: true, status_code: StatusCode.SUCCESS, message: translator.t(message) })
-    .status(ResponseStatus.SUCCESS);
+    .status(ResponseStatus.SUCCESS)
+    .send({ success: true, status_code: StatusCode.SUCCESS, message: translator.t(message) });
 }
 
 export function FailureMsgResponse(res: Response, message = LANGUAGE_KEYS.ERROR): Response {
   return res
-    .send({ success: false, status_code: StatusCode.FAILURE, message: translator.t(message) })
-    .status(ResponseStatus.SUCCESS);
+    .status(ResponseStatus.SUCCESS)
+    .send({ success: false, status_code: StatusCode.FAILURE, message: translator.t(message) });
+}
+
+export function RouteNotFoundResponse(
+  res: Response,
+  message = LANGUAGE_KEYS.ROUTE_NOT_FOUND,
+): Response {
+  return res
+    .status(ResponseStatus.NOT_FOUND)
+    .send({ success: true, status_code: StatusCode.RETRY, message: translator.t(message) });
 }
 
 export function SuccessResponse<T>(
@@ -89,21 +98,19 @@ export function SuccessResponse<T>(
   message = LANGUAGE_KEYS.SUCCESSFUL,
 ): Response {
   return res
-    .json({ success: true, status_code: StatusCode.SUCCESS, message: translator.t(message), data })
-    .status(ResponseStatus.SUCCESS);
+    .status(ResponseStatus.SUCCESS)
+    .json({ success: true, status_code: StatusCode.SUCCESS, message: translator.t(message), data });
 }
 
 export function AccessTokenErrorResponse(
   res: Response,
   message = LANGUAGE_KEYS.ACCESS_TOKEN_ERROR_RESPONSE,
 ): Response {
-  return res
-    .send({
-      success: false,
-      status_code: StatusCode.INVALID_ACCESS_TOKEN,
-      message: translator.t(message),
-    })
-    .status(ResponseStatus.UNAUTHORIZED);
+  return res.status(ResponseStatus.UNAUTHORIZED).send({
+    success: false,
+    status_code: StatusCode.INVALID_ACCESS_TOKEN,
+    message: translator.t(message),
+  });
 }
 
 export function TokenRefreshResponse(
@@ -112,13 +119,11 @@ export function TokenRefreshResponse(
   accessToken: string,
   refreshToken: string,
 ): Response {
-  return res
-    .json({
-      success: true,
-      status_code: StatusCode.SUCCESS,
-      message: translator.t(message),
-      access_token: accessToken,
-      refresh_token: refreshToken,
-    })
-    .status(ResponseStatus.SUCCESS);
+  return res.status(ResponseStatus.SUCCESS).json({
+    success: true,
+    status_code: StatusCode.SUCCESS,
+    message: translator.t(message),
+    access_token: accessToken,
+    refresh_token: refreshToken,
+  });
 }

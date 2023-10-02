@@ -28,7 +28,7 @@ function PreMiddleware(app: express.Application) {
   app.use(limiter);
 
   //change app language
-  i18nInstance.changeLanguage('spanish');
+  // i18nInstance.changeLanguage('english');
 
   return app;
 }
