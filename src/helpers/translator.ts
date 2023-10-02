@@ -1,24 +1,26 @@
 import i18n from 'i18next';
 
 // Manually load translation files
-const englishTranslations = require('../constants/languages/english.json');
-const frenchTranslations = require('../constants/languages/french.json');
-const chineseTranslations = require('../constants/languages/chinese.json');
-const hausaTranslations = require('../constants/languages/hausa.json'); // Fill in Hausa translations
-const hindiTranslations = require('../constants/languages/hindi.json'); // Fill in Hindi translations
-const igboTranslations = require('../constants/languages/igbo.json'); // Fill in Igbo translations
-const italianTranslations = require('../constants/languages/italian.json'); // Fill in Italian translations
-const japaneseTranslations = require('../constants/languages/japanese.json'); // Fill in Japanese translations
-const koreanTranslations = require('../constants/languages/korean.json'); // Fill in Korean translations
-const russianTranslations = require('../constants/languages/russian.json'); // Fill in Russian translations
-const spanishTranslations = require('../constants/languages/spanish.json'); // Fill in Spanish translations
-const yorubaTranslations = require('../constants/languages/yoruba.json'); // Fill in Yoruba translations
+// const englishTranslations = require('../constants/languages/english.json');
+import * as englishTranslations from '../constants/languages/english.json';
+import * as frenchTranslations from '../constants/languages/french.json';
+import * as chineseTranslations from '../constants/languages/chinese.json';
+import * as hausaTranslations from '../constants/languages/hausa.json';
+import * as hindiTranslations from '../constants/languages/hindi.json';
+import * as igboTranslations from '../constants/languages/igbo.json';
+import * as italianTranslations from '../constants/languages/italian.json';
+import * as japaneseTranslations from '../constants/languages/japanese.json';
+import * as koreanTranslations from '../constants/languages/korean.json';
+import * as russianTranslations from '../constants/languages/russian.json';
+import * as spanishTranslations from '../constants/languages/spanish.json';
+import * as yorubaTranslations from '../constants/languages/yoruba.json';
+
 
 const i18nInstance = i18n.createInstance();
 
 // Initialize i18next instance
 i18nInstance.init({
-  lng: 'french', // Set the initial language
+  lng: 'english', // Set the initial language
   fallbackLng: 'english',
   resources: {
     // Add manually loaded translations
